@@ -1,13 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" routerLink="/">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" *ngIf="this.auth.Logged" routerLink="/component-one">Link1</a>
-      <a class="nav-item nav-link" *ngIf="this.auth.Logged" routerLink="/component-two">Link2</a>
+<header class="header" id="header">
+  <nav class="navbar container">
+    <a href="#" class="brand">Brand</a>
+    <div class="burger" id="burger" (click)="toggleMenu()">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
     </div>
-  </div>
-</nav>
+    <div class="menu" [class.is-active]="isMenuActive" id="menu">
+      <ul class="menu-inner">
+        <li class="menu-item"><a href="#" class="menu-link" (click)="closeMenu()">Home</a></li>
+        <li class="menu-item"><a href="#" class="menu-link" (click)="closeMenu()">Feature</a></li>
+        <li class="menu-item"><a href="#" class="menu-link" (click)="closeMenu()">Product</a></li>
+        <li class="menu-item"><a href="#" class="menu-link" (click)="closeMenu()">Support</a></li>
+      </ul>
+    </div>
+    <a href="#" class="menu-block">Discover</a>
+  </nav>
+</header>

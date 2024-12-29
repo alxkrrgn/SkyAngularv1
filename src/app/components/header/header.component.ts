@@ -1,18 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
-
-import {AuthService} from '../../services/auth.service'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
+  isMenuActive = false;
+  isOnScroll = false;
 
-  constructor(private auth : AuthService) { }
-
-  ngOnInit() {
-    alert(this.auth.Logged);
+  toggleMenu() {
+    this.isMenuActive = !this.isMenuActive;
   }
 
+  closeMenu() {
+    this.isMenuActive = false;
+  }
+
+  @HostListener('window:scroll', [])
+  onScroll() {
+    this.isOnScroll = window.scrollY >= 85;
+  }
+
+  @HostListener('window:resize', [])
+  onResize() {
+    if (window.innerWidth > 768) {
+      this.isMenuActive = false;
+    }
+  }
 }
