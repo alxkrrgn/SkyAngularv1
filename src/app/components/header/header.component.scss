@@ -1,0 +1,111 @@
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+
+  background-color: rgba(255, 255, 255, 0.6); /* semi-transparent */
+  //-webkit-backdrop-filter: blur(10px); /* blur background */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure content below doesn't hide behind navbar */
+:host ::ng-deep body,
+:host ::ng-deep main,
+:host ::ng-deep section {
+  padding-top: 70px; /* adjust based on navbar height */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-toggle img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Navigation menu */
+nav {
+  display: none;
+}
+
+nav.active {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 10px 0;
+}
+
+/* Mobile first - vertical nav */
+@media screen and (max-width: 767px) {
+  nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 15px;
+    z-index: 999;
+  }
+
+  nav ul li a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Desktop - horizontal nav */
+@media screen and (min-width: 768px) {
+  nav {
+    display: block !important;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 20px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}
