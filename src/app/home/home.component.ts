@@ -37,6 +37,11 @@ export class HomeComponent implements OnInit {
     this.menuOpen = !this.menuOpen;
   }
   
+  // In component.ts
+testimonials = [
+  { quote: "SNOW changed the game!", author: "CryptoDude42" },
+  { quote: "Meme coins finally make sense!", author: "Jane.eth" }
+];
 
   private updateViewportState() {
     const isNowDesktop = window.innerWidth > 768;

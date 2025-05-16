@@ -105,6 +105,16 @@
       <li><span>Q4 2025:</span> Partnerships, Real-World Merch, Mobile App</li>
     </ul>
   </section>
+
+  <section class="testimonials">
+    <h2>What Our Community Says</h2>
+    <div class="testimonial-wrapper">
+      <div class="testimonial-card" *ngFor="let t of testimonials">
+        <p class="quote">“{{ t.quote }}”</p>
+        <p class="author">– {{ t.author }}</p>
+      </div>
+    </div>
+  </section>
   
   <section class="community animate fade-in-up">
     <h2>💬 Join the Pack</h2>
